@@ -52,9 +52,10 @@ for urls in response_data['data']:
     # download the image and save it to a file
     image_response = requests.get(image_url)
     file = args.output.replace("{sentence}", " ".join(args.sentence)).replace("{num}", str(i))
-    dir = os.path.dirname(file)
-    if not os.path.exists(dir):
-        os.makedirs(dir, exist_ok=True)
+    if file.find("/") >= 0:
+        dir = os.path.dirname(file)
+        if not os.path.exists(dir):
+            os.makedirs(dir, exist_ok=True)
     with open(file, 'wb') as f:
         f.write(image_response.content)
     i += 1
