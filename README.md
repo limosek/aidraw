@@ -19,18 +19,6 @@ python3 aidraw.py --help
 ## API key
 You need an API key from openai. See https://platform.openai.com/docs/api-reference/introduction to get it.
 
-## Examples
-
-This will create directory 'Nice red ball just before goal' and generates three pictures within:
-```
-aidraw.py --count=3 "Nice red ball just before goal"
-```
-
-This will create one file with better resolution:
-```
-aidraw.py --size 1024x1024 --count=1 --output='' "Nice red ball just before goal"
-```
-
 ## Usage
 
 ```
@@ -51,7 +39,19 @@ optional arguments:
   --output OUTPUT  Save image[s] to this directory
 ```
 
+## Examples
 
+This will create directory 'Nice red box' and generates three pictures within:
+```
+aidraw.py --count=3 "Nice red box"
+```
 
+![1](examples/Nice%20red%20box/aidraw-1.jpg?raw=true)
+![2](examples/Nice%20red%20box/aidraw-2.jpg?raw=true)
+![3](examples/Nice%20red%20box/aidraw-3.jpg?raw=true)
 
-
+This will create one file with better resolution:
+```
+ aidraw.py --size 1024x1024 --count=1 "Green car with black roof"
+```
+![1](examples/Green%20car%20with%20black%20roof/aidraw-1.jpg?raw=true)
