@@ -38,7 +38,8 @@ if args.debug:
 endpoint = 'https://api.openai.com/v1/images/generations'
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': f'Bearer {args.key}'
+    'Authorization': f'Bearer {args.key}',
+    'Content-type': 'application/json; charset=utf-8'
 }
 
 # set up the request parameters
@@ -51,9 +52,11 @@ data = {
 }
 
 # send the request and parse the response
-response = requests.post(endpoint, headers=headers, data=json.dumps(data))
+response = requests.post(endpoint, headers=headers, data=json.dumps(data).encode("utf-8"))
+response.encoding = "utf-8"
 if args.debug:
     print(json.dumps(data, indent=2), file=sys.stderr)
+    print(response.text)
 response.raise_for_status()
 response_data = response.json()
 if args.debug:
